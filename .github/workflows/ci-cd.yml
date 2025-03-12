@@ -48,7 +48,7 @@ jobs:
         uses: actions/checkout@v3
 
       - name: 🔐 Login no Docker Hub
-        run: echo "${{ secrets.DOCKER_ACESS_TOKEN }}" | head -n2 | {
+        run: echo "${{ secrets.DOCKER_TOKEN_SECRET }}" | head -n2 | {
           read username
           read token
           echo "$token" | docker login -u "$username" --password-stdin
