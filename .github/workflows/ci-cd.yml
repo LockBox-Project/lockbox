@@ -34,7 +34,7 @@ jobs:
             ${{ runner.os }}-node-
 
       - name: 👆 Instalar dependências (Backend)
-        working-directory: lockbox/backend
+        working-directory: backend
         run: |
           if [ -f package.json ]; then
             npm install
@@ -44,7 +44,7 @@ jobs:
           fi
 
       - name: 👆 Instalar dependências (Frontend)
-        working-directory: lockbox/frontend
+        working-directory: frontend
         run: |
           if [ -f package.json ]; then
             npm install
