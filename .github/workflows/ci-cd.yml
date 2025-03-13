@@ -17,7 +17,7 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      - name: 📥 Checkout do código
+      - name: 👅 Checkout do código
         uses: actions/checkout@v3
 
       - name: 🔨 Configurar Node.js
@@ -53,15 +53,32 @@ jobs:
             exit 1
           fi
 
-      - name: 🧩 Executar testes
-        run: npm test
+      - name: 🧙‍♂️ Executar testes (Backend e Frontend)
+        run: |
+          if [ -d backend ] && [ -f backend/package.json ]; then
+            echo "🔍 Rodando testes no Backend..."
+            cd backend
+            npm test
+            cd ..
+          else
+            echo "⚠️ Backend não encontrado ou sem package.json"
+          fi
+
+          if [ -d frontend ] && [ -f frontend/package.json ]; then
+            echo "🔍 Rodando testes no Frontend..."
+            cd frontend
+            npm test
+            cd ..
+          else
+            echo "⚠️ Frontend não encontrado ou sem package.json"
+          fi
 
   docker-build-and-push:
     needs: build-and-test
     runs-on: ubuntu-latest
 
     steps:
-      - name: 📥 Checkout do código
+      - name: 👅 Checkout do código
         uses: actions/checkout@v3
 
       - name: 🔐 Login no Docker Hub
