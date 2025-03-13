@@ -1,3 +1,4 @@
+// filepath: /Users/monteiro/Desktop/lockbox/frontend/tailwind.config.js
 /** @type {import('tailwindcss').Config} */
 export default {
   content: [

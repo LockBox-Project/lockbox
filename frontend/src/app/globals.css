@@ -1,4 +1,7 @@
-@import "tailxwindcss";
+/* filepath: /Users/monteiro/Desktop/lockbox/frontend/src/app/globals.css */
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
 
 :root {
   --background: #ffffff;
