@@ -87,10 +87,10 @@ jobs:
 
       - name: 🏰 Build da imagem Docker
         run: |
-          docker build -t usuario/password-manager:${{ github.sha }} -f backend/Dockerfile backend
-          docker tag usuario/password-manager:${{ github.sha }} usuario/password-manager:latest
+          docker build -t joaomsgomes/lockbox:${{ github.sha }} -f backend/Dockerfile backend
+          docker tag joaomsgomes/lockbox:${{ github.sha }} joaomsgomes/lockbox:latest
           
       - name: 📤 Push da imagem para o Docker Hub
         run: |
-          docker push usuario/password-manager:${{ github.sha }}
-          docker push usuario/password-manager:latest
+          docker push joaomsgomes/lockbox:${{ github.sha }}
+          docker push joaomsgomes/lockbox:latest
