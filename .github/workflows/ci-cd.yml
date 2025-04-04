@@ -87,7 +87,7 @@ jobs:
 
       - name: 🏰 Build da imagem Docker
         run: |
-          docker build -t usuario/password-manager:${{ github.sha }} .
+          docker build -t usuario/password-manager:${{ github.sha }} -f backend/Dockerfile backend
           docker tag usuario/password-manager:${{ github.sha }} usuario/password-manager:latest
           
       - name: 📤 Push da imagem para o Docker Hub
