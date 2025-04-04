@@ -4,29 +4,65 @@ import { signIn } from "next-auth/react";
 import { FcGoogle } from "react-icons/fc";
 import { FaGithub } from "react-icons/fa";
 
+import './login.css'; // Importando o arquivo de estilo CSS
+
 export default function LoginPage() {
   return (
-    <div className="flex min-h-screen items-center justify-center bg-gradient-to-r from-gray-900 to-black">
-      <div className="bg-gray-800 p-8 rounded-2xl shadow-lg text-center">
-        <h1 className="text-3xl font-bold text-white mb-6">Bem-vindo 👋</h1>
-        <p className="text-gray-400 mb-4">Faça login para continuar</p>
+    <div className="login-container">
+      <div className="login-box">
+        <h1>Welcome to LockBox! 👋</h1>
+        <p>Log in to Continue</p>
 
+        {/* Formulário de login com username e password */}
+        <form className="login-form">
+          <div className="input-group">
+            <label htmlFor="username" className="input-label">Username</label>
+            <input
+              id="username"
+              type="text"
+              name="username"
+              placeholder="Digite seu username"
+              className="input-field"
+              required
+            />
+          </div>
+
+          <div className="input-group">
+            <label htmlFor="password" className="input-label">Password</label>
+            <input
+              id="password"
+              type="password"
+              name="password"
+              placeholder="Digite sua senha"
+              className="input-field"
+              required
+            />
+          </div>
+
+          <button type="submit" className="login-button login-button-submit">
+            Submit
+          </button>
+        </form>
+
+        {/* Botões de login com Google e GitHub */}
         <button
-          className="flex items-center justify-center w-full bg-white text-black py-2 rounded-lg shadow-md hover:bg-gray-200 transition-all mb-3"
+          className="login-button login-button-google"
           onClick={() => signIn("google", { callbackUrl: "/menu" })}
         >
-          <FcGoogle className="text-2xl mr-2" /> Entrar com Google
+          <FcGoogle className="text-2xl ml-2" /> Enter with Google
         </button>
 
         <button
-          className="flex items-center justify-center w-full bg-gray-700 text-white py-2 rounded-lg shadow-md hover:bg-gray-600 transition-all"
+          className="login-button login-button-github"
           onClick={() => signIn("github", { callbackUrl: "/menu" })}
         >
-          <FaGithub className="text-2xl mr-2" /> Entrar com GitHub
+          <FaGithub className="text-2xl ml-2" /> Enter with GitHub
         </button>
 
-        <p className="text-gray-500 text-sm mt-4">Seu login é seguro 🔒</p>
+        <p className="login-footer">Your Login is Safe!🔒</p>
       </div>
     </div>
   );
 }
+
+
