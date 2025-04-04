@@ -61,7 +61,7 @@ A Plataforma de Gestão Segura de Credenciais permite aos utilizadores armazenar
 1. Clone o repositório:
    ```sh
    git clone https://github.com/seu-usuario/seu-repositorio.git
-   cd seu-repositorio
+   cd lockbox
    ```
 
 2. Configure as variáveis de ambiente no arquivo `.env`:
