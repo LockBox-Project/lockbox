@@ -7,6 +7,9 @@ import Image from "next/image";
 import './login.css';
 import Link from 'next/link';
 
+
+
+
 export default function LoginPage() {
   return (
     <div className="container">
@@ -58,7 +61,7 @@ export default function LoginPage() {
         </div>
 
         <div className="signin-link">
-          Already a member? <Link href="/signn">Sign in</Link>
+          Already a member? <Link href="/signIn">Sign in</Link>
         </div>
       </div>
     </div>
