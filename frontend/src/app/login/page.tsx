@@ -10,16 +10,17 @@ import Link from 'next/link';
 export default function LoginPage() {
   return (
     <div className="container">
-      {/* Lado Esquerdo */}
-      <div className="left-panel">
-        <div className="logo">
-          <Image src="/images/logo.png" alt="LockBox Logo" width={80} height={80} />
-        </div>
-        <img src="/images/2fa.png" alt="2FA" />
-        <img src="/images/2fa.png" alt="2FA" />
-        <img src="/images/2fa.png" alt="2FA" />
-        <img src="/images/2fa.png" alt="2FA" />
+      {/* Logo in the top-right corner */}
+      <div className="logo">
+        <Image src="/images/logo.png" alt="LockBox Logo" width={100} height={100} />
+      </div>
 
+      {/* Left Panel */}
+      <div className="left-panel">
+        <img src="/images/2fa.png" alt="2FA" />
+        <img src="/images/2fa.png" alt="2FA" />
+        <img src="/images/2fa.png" alt="2FA" />
+        <img src="/images/2fa.png" alt="2FA" />
       </div>
 
       {/* Lado Direito */}
@@ -34,23 +35,12 @@ export default function LoginPage() {
           </div>
           <input type="email" placeholder="Email" required />
           <input type="password" placeholder="Enter your password" required />
-          <button className="tooltip-button">
-            <span className="tooltip-button-text">
-              Hover For Tooltip
-            </span>
-            <div className="tooltip-container">
-              <div className="tooltip-content">
-                <div className="tooltip-box">
-                  <p>This is a tooltip.</p>
-                </div>
-                <div className="tooltip-arrow"></div>
-              </div>
-            </div>
-          </button>
+            <button className="create-btn" type="submit">
+            Create Account
+            </button>
+          </form>
 
-        </form>
-
-        <div className="alt-login-text">Or register with</div>
+          <div className="alt-login-text">Or register with</div>
 
         <div className="alt-login">
           <button
@@ -68,7 +58,7 @@ export default function LoginPage() {
         </div>
 
         <div className="signin-link">
-          Already a member? <Link href="/signIn">Sign in</Link>
+          Already a member? <Link href="/signn">Sign in</Link>
         </div>
       </div>
     </div>
