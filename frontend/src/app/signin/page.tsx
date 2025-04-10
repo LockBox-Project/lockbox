@@ -4,22 +4,36 @@ import { signIn } from "next-auth/react";
 import { FcGoogle } from "react-icons/fc";
 import { FaGithub } from "react-icons/fa";
 import Image from "next/image";
-import './signIn.css';
+import './signin.css';
 
 export default function SignInPage() {
   return (
     <div className="container">
       {/* Lado Esquerdo */}
-      <div className="left-panel">
-        <div className="logo">
-          <Image src="/images/logo.png" alt="LockBox Logo" width={80} height={80} />
-        </div>
-        <img src="/images/2fa.png" alt="2FA" />
-        <img src="/images/2fa.png" alt="2FA" />
-        <img src="/images/2fa.png" alt="2FA" />
-        <img src="/images/2fa.png" alt="2FA" />
-
+      <div className="logo">
+        <Image src="/images/logo.png" alt="LockBox Logo" width={60} height={60} />
       </div>
+      
+      <div className="left-panel">
+      <div className="image-grid">
+        <div>
+          <img src="/images/2fa.png" alt="2FA" />
+          <p>2FA</p>
+        </div>
+        <div>
+          <img src="/images/2fa.png" alt="2FA" />
+          <p>2FA</p>
+        </div>
+        <div>
+          <img src="/images/2fa.png" alt="2FA" />
+          <p>2FA</p>
+        </div>
+        <div>
+          <img src="/images/2fa.png" alt="2FA" />
+          <p>2FA</p>
+        </div>
+      </div>
+    </div>
 
       {/* Lado Direito */}
       <div className="right-panel">
@@ -32,7 +46,7 @@ export default function SignInPage() {
           <button type="submit" className="create-btn">Create account</button>
         </form>
 
-        <div className="alt-login-text">Or register with</div>
+        <div className="alt-login-text">Or login with</div>
 
         <div className="alt-login">
           <button
