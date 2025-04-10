@@ -4,10 +4,9 @@ import { signIn } from "next-auth/react";
 import { FcGoogle } from "react-icons/fc";
 import { FaGithub } from "react-icons/fa";
 import Image from "next/image";
-import './login.css';
-import Link from 'next/link';
+import './signIn.css';
 
-export default function LoginPage() {
+export default function SignInPage() {
   return (
     <div className="container">
       {/* Lado Esquerdo */}
@@ -24,30 +23,13 @@ export default function LoginPage() {
 
       {/* Lado Direito */}
       <div className="right-panel">
-        <h1>Welcome to LockBox</h1>
-        <p>Register to Continue</p>
+        <h1>Welcome back!</h1>
+        <p>Login to Continue</p>
 
         <form className="login-form">
-          <div className="form-row">
-            <input type="text" placeholder="First name" required />
-            <input type="text" placeholder="Last name" required />
-          </div>
           <input type="email" placeholder="Email" required />
           <input type="password" placeholder="Enter your password" required />
-          <button className="tooltip-button">
-            <span className="tooltip-button-text">
-              Hover For Tooltip
-            </span>
-            <div className="tooltip-container">
-              <div className="tooltip-content">
-                <div className="tooltip-box">
-                  <p>This is a tooltip.</p>
-                </div>
-                <div className="tooltip-arrow"></div>
-              </div>
-            </div>
-          </button>
-
+          <button type="submit" className="create-btn">Create account</button>
         </form>
 
         <div className="alt-login-text">Or register with</div>
@@ -65,10 +47,6 @@ export default function LoginPage() {
           >
             <FaGithub className="icon" /> Github
           </button>
-        </div>
-
-        <div className="signin-link">
-          Already a member? <Link href="/signIn">Sign in</Link>
         </div>
       </div>
     </div>
