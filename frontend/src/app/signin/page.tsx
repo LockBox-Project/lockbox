@@ -1,12 +1,20 @@
 "use client";
 
 import { signIn } from "next-auth/react";
+import { useState } from "react";
 import { FcGoogle } from "react-icons/fc";
 import { FaGithub } from "react-icons/fa";
+import { MdVisibility, MdVisibilityOff } from "react-icons/md";
 import Image from "next/image";
 import './signin.css';
 
 export default function SignInPage() {
+  const [showPassword, setShowPassword] = useState(false);
+
+  const togglePasswordVisibility = () => {
+    setShowPassword(!showPassword);
+  };
+
   return (
     <div className="container">
       {/* Lado Esquerdo */}
@@ -42,8 +50,21 @@ export default function SignInPage() {
 
         <form className="login-form">
           <input type="email" placeholder="Email" required />
-          <input type="password" placeholder="Enter your password" required />
-          <button type="submit" className="create-btn">Create account</button>
+          <div className="password-container">
+            <input
+              type={showPassword ? "text" : "password"}
+              placeholder="Enter your password"
+              required
+            />
+            <button
+              type="button"
+              className="toggle-password-btn"
+              onClick={togglePasswordVisibility}
+            >
+              {showPassword ? <MdVisibilityOff size={20} /> : <MdVisibility size={20} />}
+            </button>
+          </div>
+          <button type="submit" className="create-btn">Sign In</button>
         </form>
 
         <div className="alt-login-text">Or login with</div>

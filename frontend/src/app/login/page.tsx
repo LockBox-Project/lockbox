@@ -1,8 +1,10 @@
 "use client";
 
 import { signIn } from "next-auth/react";
+import { useState } from "react";
 import { FcGoogle } from "react-icons/fc";
 import { FaGithub } from "react-icons/fa";
+import { MdVisibility, MdVisibilityOff } from "react-icons/md";
 import Image from "next/image";
 import './login.css';
 import Link from 'next/link';
@@ -11,20 +13,38 @@ import Link from 'next/link';
 
 
 export default function LoginPage() {
-  return (
-    <div className="container">
-      {/* Logo in the top-right corner */}
-      <div className="logo">
-        <Image src="/images/logo.png" alt="LockBox Logo" width={100} height={100} />
-      </div>
+  const [showPassword, setShowPassword] = useState(false);
 
-      {/* Left Panel */}
-      <div className="left-panel">
-        <img src="/images/2fa.png" alt="2FA" />
-        <img src="/images/2fa.png" alt="2FA" />
-        <img src="/images/2fa.png" alt="2FA" />
-        <img src="/images/2fa.png" alt="2FA" />
-      </div>
+  const togglePasswordVisibility = () => {
+    setShowPassword(!showPassword);
+  };
+  return (
+    <div className="container">      
+          <div className="logo">
+            <Image src="/images/logo.png" alt="LockBox Logo" width={60} height={60} />
+          </div>
+
+          {/* Lado Esquerdo */}
+          <div className="left-panel">
+          <div className="image-grid">
+            <div>
+              <img src="/images/2fa.png" alt="2FA" />
+              <p>2FA</p>
+            </div>
+            <div>
+              <img src="/images/2fa.png" alt="2FA" />
+              <p>2FA</p>
+            </div>
+            <div>
+              <img src="/images/2fa.png" alt="2FA" />
+              <p>2FA</p>
+            </div>
+            <div>
+              <img src="/images/2fa.png" alt="2FA" />
+              <p>2FA</p>
+            </div>
+          </div>
+        </div>
 
       {/* Lado Direito */}
       <div className="right-panel">
@@ -37,13 +57,24 @@ export default function LoginPage() {
             <input type="text" placeholder="Last name" required />
           </div>
           <input type="email" placeholder="Email" required />
-          <input type="password" placeholder="Enter your password" required />
-            <button className="create-btn" type="submit">
-            Create Account
+          <div className="password-container">
+            <input
+              type={showPassword ? "text" : "password"}
+              placeholder="Enter your password"
+              required
+            />
+            <button
+              type="button"
+              className="toggle-password-btn"
+              onClick={togglePasswordVisibility}
+            >
+              {showPassword ? <MdVisibilityOff size={20} /> : <MdVisibility size={20} />}
             </button>
-          </form>
+          </div>
+          <button type="submit" className="create-btn">Sign In</button>
+        </form>
 
-          <div className="alt-login-text">Or register with</div>
+        <div className="alt-login-text">Or register with</div>
 
         <div className="alt-login">
           <button
@@ -61,7 +92,7 @@ export default function LoginPage() {
         </div>
 
         <div className="signin-link">
-          Already a member? <Link href="/signIn">Sign in</Link>
+          Already a member? <Link href="/signin">Sign in</Link>
         </div>
       </div>
     </div>
