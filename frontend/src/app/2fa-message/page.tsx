@@ -13,6 +13,10 @@ export default function TwoFactorMessage() {
   const handleSkip = () => {
     router.push("/menu");
   };
+
+  const handleSetup = () => {
+    router.push("/2fa-auth");
+  };
   return (
     <div className="container">
           <div className="logo">
@@ -29,7 +33,7 @@ export default function TwoFactorMessage() {
 
           <div className= "two-buttons">
             <button className="Skn" onClick={handleSkip}>Skip for now</button>
-            <button className="S2A">Setup 2FA</button>
+            <button className="S2A" onClick={handleSetup}>Setup 2FA</button>
           </div>
     </div>
   );

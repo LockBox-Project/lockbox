@@ -4,6 +4,7 @@ import { signIn } from "next-auth/react";
 import { useState } from "react";
 import { FcGoogle } from "react-icons/fc";
 import { FaGithub } from "react-icons/fa";
+import { useRouter } from "next/navigation";
 import { MdVisibility, MdVisibilityOff } from "react-icons/md";
 import Image from "next/image";
 import './signin.css';
@@ -13,6 +14,12 @@ export default function SignInPage() {
 
   const togglePasswordVisibility = () => {
     setShowPassword(!showPassword);
+  };
+
+  const router = useRouter();
+  
+  const handleSkip = () => {
+    router.push("/2fa-login");
   };
 
   return (
@@ -64,7 +71,7 @@ export default function SignInPage() {
               {showPassword ? <MdVisibilityOff size={20} /> : <MdVisibility size={20} />}
             </button>
           </div>
-          <button type="submit" className="create-btn">Sign In</button>
+          <button type="submit" className="create-btn" onClick={handleSkip}>Sign In</button>
         </form>
 
         <div className="alt-login-text">Or login with</div>
