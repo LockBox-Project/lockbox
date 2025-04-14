@@ -72,7 +72,7 @@ export default function SignInPage() {
               {showPassword ? <MdVisibilityOff size={20} /> : <MdVisibility size={20} />}
             </button>
           </div>
-          <button type="submit" className="create-btn">Sign In</button>
+          <button type="submit" className="signin-btn">Sign In</button>
         </form>
 
         <div className="alt-login-text">Or login with</div>

@@ -15,21 +15,6 @@ export default function TwoFactorMessage() {
     window.location.href = '/menu';
   };
 
-  useEffect(() => {
-    const handlePageShow = (event: PageTransitionEvent) => {
-      console.log("pageshow event triggered:", event);
-      if (event.persisted) {
-        window.location.reload();
-      }
-    };
-  
-    window.addEventListener("pageshow", handlePageShow);
-  
-    return () => {
-      window.removeEventListener("pageshow", handlePageShow);
-    };
-  }, []);
-
   return (
     <div className="container">
           <div className="logo">

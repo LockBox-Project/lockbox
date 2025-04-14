@@ -112,10 +112,37 @@ input {
 }
 
 button.create-btn {
-  background-color: #7c3aed;
-  color: white;
-  font-weight: bold;
+  padding: 15px 20px;
+  border: none;
+  border-radius: 6px;
   cursor: pointer;
+  font-size: 16px;
+  font-weight: 600;
+  overflow: hidden;
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-image: linear-gradient(135deg, #cc3deb, #5b68e4);
+  z-index: 1;
+  color: #fff;
+}
+
+button.create-btn::after {
+  content: 'Create Account'; 
+  position: absolute;
+  inset: 0;
+  margin: 2px;
+  border-radius: 6px;
+  background-color: #1e1e1e;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+button.create-btn:hover {
+  box-shadow: -10px 0 20px #cb3deb6e, 10px 0 20px #5b69e45c;
+  z-index: 2;
 }
 
 .alt-login-text {
@@ -123,7 +150,7 @@ button.create-btn {
   align-items: center;
   text-align: center;
   color: #ccc;
-  margin: 20px 0 7px;
+  margin: 10px 0 10px;
   font-size: 14px;
 }
 
@@ -139,7 +166,6 @@ button.create-btn {
 .alt-login {
   display: flex;
   gap: 10px;
-  margin: 10px 0;
 }
 
 .alt-login button {
@@ -150,16 +176,6 @@ button.create-btn {
   cursor: pointer;
 }
 
-.signin-link {
-  margin-top: 10px;
-  text-align: center;
-}
-
-.signin-link a {
-  color: #9f7aea;
-  text-decoration: none;
-}
-
 .password-container {
   position: relative;
   display: flex;
@@ -168,7 +184,7 @@ button.create-btn {
 
 .password-container input {
   flex: 1;
-  padding-right: 20px; /* Espaço para o botão */
+  padding-right: 20px;
 }
 
 .toggle-password-btn {
@@ -190,5 +206,5 @@ button.create-btn {
 
 .signin-link a {
   color: #9f7aea;
-  text-decoration: none;
+  text-decoration: none;
 }

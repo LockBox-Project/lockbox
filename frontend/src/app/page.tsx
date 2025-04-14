@@ -55,7 +55,7 @@ const HomePage = () => {
           onClick={handleEnter}
           className="w-[300px] px-5 py-[15px] rounded-md cursor-pointer text-white text-[16px] font-semibold flex justify-center items-center bg-gradient-to-br from-[#cc3deb] to-[#5b68e4] hover:shadow-[10px_0_20px_#5b69e45c,-10px_0_20px_#cb3deb6e]"
         >
-          Enter
+          Get Started
         </button>
       </div>
     </div>
