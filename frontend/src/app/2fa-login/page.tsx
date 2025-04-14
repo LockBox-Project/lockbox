@@ -2,6 +2,7 @@
 
 import Image from "next/image";
 import { useRouter } from "next/navigation";
+import { useEffect } from "react";
 import './2fa-login.css';
 
 
@@ -11,8 +12,24 @@ export default function TwoFactorMessage() {
   const router = useRouter();
 
   const handleSkip = () => {
-    router.push("/menu");
+    window.location.href = '/menu';
   };
+
+    
+  useEffect(() => {
+    const handlePopState = () => {
+      console.log("Navigated back or forward");
+      // Adicione lógica aqui, como recarregar a página ou atualizar o estado
+      window.location.reload(); // Opcional: recarrega a página
+    };
+  
+    window.addEventListener("popstate", handlePopState);
+  
+    return () => {
+      window.removeEventListener("popstate", handlePopState);
+    };
+  }, []);
+
   return (
     <div className="container">
           <div className="logo">

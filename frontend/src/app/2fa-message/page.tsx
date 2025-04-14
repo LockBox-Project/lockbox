@@ -2,6 +2,7 @@
 
 import Image from "next/image";
 import { useRouter } from "next/navigation";
+import { useEffect } from "react";
 import './2fa-message.css';
 
 
@@ -11,12 +12,13 @@ export default function TwoFactorMessage() {
   const router = useRouter();
 
   const handleSkip = () => {
-    router.push("/menu");
+    window.location.href = '/menu';
   };
 
   const handleSetup = () => {
-    router.push("/2fa-auth");
+    window.location.href = '/2fa-auth';
   };
+
   return (
     <div className="container">
           <div className="logo">

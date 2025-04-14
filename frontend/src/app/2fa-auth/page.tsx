@@ -2,6 +2,7 @@
 
 import Image from "next/image";
 import { useRouter } from "next/navigation";
+import { useEffect } from "react";
 import './2fa-auth.css';
 
 
@@ -11,8 +12,24 @@ export default function TwoFactorMessage() {
   const router = useRouter();
 
   const handleSkip = () => {
-    router.push("/menu");
+    window.location.href = '/menu';
   };
+
+  useEffect(() => {
+    const handlePageShow = (event: PageTransitionEvent) => {
+      console.log("pageshow event triggered:", event);
+      if (event.persisted) {
+        window.location.reload();
+      }
+    };
+  
+    window.addEventListener("pageshow", handlePageShow);
+  
+    return () => {
+      window.removeEventListener("pageshow", handlePageShow);
+    };
+  }, []);
+
   return (
     <div className="container">
           <div className="logo">
