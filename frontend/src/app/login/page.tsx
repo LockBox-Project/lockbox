@@ -4,6 +4,8 @@ import { signIn } from "next-auth/react";
 import { useState } from "react";
 import { FcGoogle } from "react-icons/fc";
 import { FaGithub } from "react-icons/fa";
+import { useRouter } from "next/navigation";
+import { useEffect } from "react";
 import { MdVisibility, MdVisibilityOff } from "react-icons/md";
 import Image from "next/image";
 import './login.css';
@@ -14,10 +16,18 @@ import Link from 'next/link';
 
 export default function LoginPage() {
   const [showPassword, setShowPassword] = useState(false);
+  const router = useRouter();
 
   const togglePasswordVisibility = () => {
     setShowPassword(!showPassword);
   };
+
+  const handleFormSubmit = (e: React.FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
+    window.location.href = '/2fa-message';
+  };
+
+
   return (
     <div className="container">      
           <div className="logo">
@@ -51,7 +61,7 @@ export default function LoginPage() {
         <h1>Welcome to LockBox</h1>
         <p>Register to Continue</p>
 
-        <form className="login-form">
+        <form className="login-form" onSubmit={handleFormSubmit}>
           <div className="form-row">
             <input type="text" placeholder="First name" required />
             <input type="text" placeholder="Last name" required />
@@ -71,7 +81,7 @@ export default function LoginPage() {
               {showPassword ? <MdVisibilityOff size={20} /> : <MdVisibility size={20} />}
             </button>
           </div>
-          <button type="submit" className="create-btn">Sign In</button>
+          <button type="submit" className="create-btn">Create Account</button>
         </form>
 
         <div className="alt-login-text">Or register with</div>
@@ -79,13 +89,13 @@ export default function LoginPage() {
         <div className="alt-login">
           <button
             className="google-btn"
-            onClick={() => signIn("google", { callbackUrl: "/menu" })}
+            onClick={() => signIn("google", { callbackUrl: "/2fa-message" })}
           >
             <FcGoogle className="icon" /> Google
           </button>
           <button
             className="github-btn"
-            onClick={() => signIn("github", { callbackUrl: "/menu" })}
+            onClick={() => signIn("github", { callbackUrl: "/2fa-message" })}
           >
             <FaGithub className="icon" /> Github
           </button>

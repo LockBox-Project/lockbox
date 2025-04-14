@@ -8,7 +8,7 @@ const HomePage = () => {
   const router = useRouter();
 
   const handleEnter = () => {
-    router.push('/login');
+    window.location.href = '/login';
   };
 
   // Garante que a página volta ao topo ao ser carregada novamente

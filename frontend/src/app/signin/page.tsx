@@ -18,8 +18,9 @@ export default function SignInPage() {
 
   const router = useRouter();
   
-  const handleSkip = () => {
-    router.push("/2fa-login");
+  const handleFormSubmit = (e: React.FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
+    window.location.href = '/2fa-login';
   };
 
   return (
@@ -55,7 +56,7 @@ export default function SignInPage() {
         <h1>Welcome back!</h1>
         <p>Login to Continue</p>
 
-        <form className="login-form">
+        <form className="login-form" onSubmit={handleFormSubmit}>
           <input type="email" placeholder="Email" required />
           <div className="password-container">
             <input
@@ -71,7 +72,7 @@ export default function SignInPage() {
               {showPassword ? <MdVisibilityOff size={20} /> : <MdVisibility size={20} />}
             </button>
           </div>
-          <button type="submit" className="create-btn" onClick={handleSkip}>Sign In</button>
+          <button type="submit" className="create-btn">Sign In</button>
         </form>
 
         <div className="alt-login-text">Or login with</div>
