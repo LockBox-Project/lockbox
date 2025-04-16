@@ -27,4 +27,10 @@ export class AuthController {
     const user = await this.userService.registerUser(body.email, body.password);
     return this.authService.login(user);  // Após o registo, também gera o token JWT
   }
+
+  @Post('oauth')
+  async oauthLogin(@Body() body: { provider: string; token: string }) {
+    const profile = await this.authService.verifyOAuthToken(body.provider, body.token);
+    return this.authService.validateOAuthLogin(profile);
+  }
 }
