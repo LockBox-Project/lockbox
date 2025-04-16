@@ -1,6 +1,6 @@
 // src/users/user.entity.ts
 import { Entity, Column, PrimaryGeneratedColumn, BeforeInsert } from 'typeorm';
-import * as bcrypt from 'bcrypt';
+import * as bcrypt from 'bcryptjs';
 
 @Entity('users')
 export class User {
