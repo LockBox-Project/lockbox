@@ -1,15 +1,12 @@
 "use client";
 
 import Image from "next/image";
-import { useRouter } from "next/navigation";
-import { useEffect } from "react";
 import './2fa-login.css';
 
 
 
 
 export default function TwoFactorMessage() {
-  const router = useRouter();
 
   const handleSkip = () => {
     window.location.href = '/menu';

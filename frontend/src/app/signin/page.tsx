@@ -4,7 +4,6 @@ import { signIn } from "next-auth/react";
 import { useState } from "react";
 import { FcGoogle } from "react-icons/fc";
 import { FaGithub } from "react-icons/fa";
-import { useRouter } from "next/navigation";
 import { MdVisibility, MdVisibilityOff } from "react-icons/md";
 import Image from "next/image";
 import './signin.css';
@@ -15,8 +14,6 @@ export default function SignInPage() {
   const togglePasswordVisibility = () => {
     setShowPassword(!showPassword);
   };
-
-  const router = useRouter();
   
   const handleFormSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
@@ -33,19 +30,19 @@ export default function SignInPage() {
       <div className="left-panel">
       <div className="image-grid">
         <div>
-          <img src="/images/2fa.png" alt="2FA" />
+          <Image src="/images/2fa.png" alt="2FA" />
           <p>2FA</p>
         </div>
         <div>
-          <img src="/images/2fa.png" alt="2FA" />
+          <Image src="/images/2fa.png" alt="2FA" />
           <p>2FA</p>
         </div>
         <div>
-          <img src="/images/2fa.png" alt="2FA" />
+          <Image src="/images/2fa.png" alt="2FA" />
           <p>2FA</p>
         </div>
         <div>
-          <img src="/images/2fa.png" alt="2FA" />
+          <Image src="/images/2fa.png" alt="2FA" />
           <p>2FA</p>
         </div>
       </div>

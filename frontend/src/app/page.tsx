@@ -1,12 +1,9 @@
 'use client';
 
-import React, { useEffect } from 'react';
 import Image from "next/image";
-import { useRouter } from 'next/navigation';
 import './home.css';
 
 const HomePage = () => {
-  const router = useRouter();
 
   const handleEnter = () => {
     window.location.href = '/login';
