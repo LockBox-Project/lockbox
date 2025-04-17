@@ -56,7 +56,22 @@ services:
       REDIS_PORT: 6379
       REDIS_PASSWORD: ${REDIS_PASSWORD}
     ports:
+      - "3000:3000"
+    networks:
+      - secure_network
+    
+  frontend:
+    build:
+      context: ./frontend
+    container_name: secure_frontend
+    restart: always
+    ports:
       - "3001:3000"
+    depends_on:
+      backend:
+        condition: service_healthy
+    environment:
+      NEXT_PUBLIC_BACKEND_URL: http://secure_backend:3000
     networks:
       - secure_network
 

@@ -22,9 +22,35 @@ export default function LoginPage() {
     setShowPassword(!showPassword);
   };
 
-  const handleFormSubmit = (e: React.FormEvent<HTMLFormElement>) => {
+  const handleFormSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    window.location.href = '/2fa-message';
+  
+    const formData = new FormData(e.currentTarget);
+    const data = {
+      firstName: formData.get("firstName"),
+      lastName: formData.get("lastName"),
+      email: formData.get("email"),
+      password: formData.get("password"),
+    };
+  
+    try {
+      const response = await fetch("http://localhost:3000/auth/register", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(data),
+      });
+  
+      if (response.ok) {
+        window.location.href = "/2fa-message";
+      } else {
+        const error = await response.json();
+        console.error("Erro ao registrar:", error.message);
+      }
+    } catch (error) {
+      console.error("Erro ao conectar ao backend:", error);
+    }
   };
 
 

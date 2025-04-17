@@ -23,8 +23,8 @@ export class AuthController {
 
   // Rota para registo de utilizadores
   @Post('register')
-  async register(@Body() body: { email: string; password: string }) {
-    const user = await this.userService.registerUser(body.email, body.password);
+  async register(@Body() body: { email: string; password: string; firstName: string; lastName: string }) {
+    const user = await this.userService.registerUser(body.email, body.password, `${body.firstName} ${body.lastName}`);
     return this.authService.login(user);  // Após o registo, também gera o token JWT
   }
 

@@ -12,10 +12,11 @@ export class UserService {
     private usersRepository: Repository<User>,
   ) {}
 
-  async createUser(email: string, password: string, name?: string): Promise<User> {
+  async createUser(email: string, password: string, name: string): Promise<User> {
     const user = new User();
     user.email = email;
     user.password = password;
+    user.name = name;
     return this.usersRepository.save(user);
   }
 
@@ -24,7 +25,7 @@ export class UserService {
     return user ? user : null;  // Retorna null se o utilizador não for encontrado
   }
 
-  async registerUser(email: string, password: string, name?: string): Promise<User> {
+  async registerUser(email: string, password: string, name: string): Promise<User> {
     const existingUser = await this.findByEmail(email);
     if (existingUser) {
       throw new Error('User already exists');
