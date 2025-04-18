@@ -52,13 +52,14 @@ services:
       DB_USER: ${POSTGRES_USER}
       DB_PASSWORD: ${POSTGRES_PASSWORD}
       DB_NAME: ${POSTGRES_DB}
+      DATABASE_URL: postgres://${POSTGRES_USER}:${POSTGRES_PASSWORD}@postgres:5432/${POSTGRES_DB}
       REDIS_HOST: redis
       REDIS_PORT: 6379
       REDIS_PASSWORD: ${REDIS_PASSWORD}
     ports:
       - "3000:3000"
     healthcheck:
-      test: ["CMD-SHELL", "curl -f http://localhost:3000/health "]
+      test: ["CMD-SHELL", "curl -f http://localhost:3000/health || exit 1 "]
       interval: 10s
       timeout: 5s
       retries: 5

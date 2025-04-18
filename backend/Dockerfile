@@ -10,6 +10,9 @@ COPY package*.json ./
 # Instala as dependências do projeto
 RUN npm install
 
+# Instala o curl usando o gerenciador de pacotes apk
+RUN apk add --no-cache curl
+
 # Copia o restante dos arquivos do projeto para o container
 COPY . .
 
